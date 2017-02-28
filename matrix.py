@@ -10,14 +10,14 @@ def generate_matrix(m,n):
         print()
     return final_matrix
 def product_matrix(A,B):
-    if len(B[0])==len(A) and len(A[0])!=len(B):
-        A,B=B,A
-    if len(A[0])==len(B):
-        for row in range(len(B)):
-            for column in range(len(A[row])):
+    if len(A)==len(B[0]):
+        if len(A[0])==len(B) and len(A)<len(A[0]):
+            A,B=B,A
+        for row in range(len(A)):
+            for column in range(len(B[0])):
                 curr_product=0
                 for curr_pos in range(len(A[0])):
-                    curr_product=curr_product+(A[row][curr_pos]*B[curr_pos][column])
+                    curr_product+=A[row][curr_pos]*B[curr_pos][column]
                 print("{:5}".format(curr_product),end='')
             print()
     else:
