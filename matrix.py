@@ -36,29 +36,41 @@ def sum_matrix(A,B):
 
 m=[0,0]
 n=[0,0]
-for matrixes in range(1,3):
-    print("Matrix "+str(matrixes))
-    while True:
-        try:
-            m[matrixes-1]=int(input("Enter m: "))
-            if m[matrixes-1]<1 or m[matrixes-1]>5:
+done=False
+while True:
+    for matrixes in range(1,3):
+        print("Matrix "+str(matrixes))
+        while True:
+            try:
+                m[matrixes-1]=int(input("Enter m: "))
+                if m[matrixes-1]==-1:
+                    break
+                if m[matrixes-1]<1 or m[matrixes-1]>5:
+                    continue
+                break
+            except Exception as e:
                 continue
-            break
-        except Exception as e:
-            continue
-    while True:
-        try:
-            n[matrixes-1]=int(input("Enter n: "))
-            if n[matrixes-1]<1 or n[matrixes-1]>5:
+        while True:
+            try:
+                n[matrixes-1]=int(input("Enter n: "))
+                if n[matrixes-1]==-1:
+                    break
+                if n[matrixes-1]<1 or n[matrixes-1]>5:
+                    continue
+                break
+            except Exception as e:
                 continue
+        if m[matrixes-1]==-1 and n[matrixes-1]==-1:
+            done=True
             break
-        except Exception as e:
-            continue
-print("Matrix 1")
-matrix1=generate_matrix(m[0],n[0])
-print("Matrix 2")
-matrix2=generate_matrix(m[1],n[1])
-print("Sum")
-sum_matrix(matrix1,matrix2)
-print("Product")
-product_matrix(matrix1,matrix2)
+    if done == True:
+        print("Bye")
+        break
+    print("Matrix 1")
+    matrix1=generate_matrix(m[0],n[0])
+    print("Matrix 2")
+    matrix2=generate_matrix(m[1],n[1])
+    print("Sum")
+    sum_matrix(matrix1,matrix2)
+    print("Product")
+    product_matrix(matrix1,matrix2)
