@@ -10,10 +10,8 @@ def generate_matrix(m,n):
         print()
     return final_matrix
 def product_matrix(A,B):
-    if len(A[0])==len(B):
-        A,B=B,A
-    if len(A)==len(B[0]):
-        if len(A[0])==len(B) and len(A)<len(A[0]):
+    if len(A)==len(B[0]) and len(A[0])==len(B):
+        if len(A)<len(A[0]):
             A,B=B,A
         for row in range(len(A)):
             for column in range(len(B[0])):
